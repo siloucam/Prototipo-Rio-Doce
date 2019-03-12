@@ -1,0 +1,50 @@
+
+entity DataSource{
+	nome String
+    path String
+    dtinicial LocalDate
+    dtfinal LocalDate
+}
+
+entity Metodo{
+	nome String
+}
+
+relationship ManyToMany{
+	DataSource{metodo} to Metodo{datasource}
+}
+
+entity Entidade{
+	nome String
+}
+
+relationship ManyToMany{
+	DataSource{entidade} to Entidade{datasource}
+}
+
+entity Atividade{
+	nome String
+}
+
+relationship ManyToMany{
+	DataSource{atividade} to Atividade{datasource}
+}
+
+entity Propriedade{
+	nome String
+}
+
+relationship ManyToMany{
+	DataSource{propriedade} to Propriedade{datasource}
+}
+
+entity Proveniencia{
+	nome String
+}
+
+relationship ManyToMany{
+	DataSource{proveniencia} to Proveniencia{datasource}
+}
+
+paginate all with infinite-scroll
+filter all
