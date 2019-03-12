@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity DataSource.
+    -->
+    <changeSet id="20190312184049-1" author="jhipster">
+        <createTable tableName="data_source">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="path" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dtinicial" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dtfinal" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="data_source_metodo">
+            <column name="metodos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_sources_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="data_sources_id, metodos_id" tableName="data_source_metodo"/>
+        
+        <createTable tableName="data_source_entidade">
+            <column name="entidades_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_sources_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="data_sources_id, entidades_id" tableName="data_source_entidade"/>
+        
+        <createTable tableName="data_source_atividade">
+            <column name="atividades_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_sources_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="data_sources_id, atividades_id" tableName="data_source_atividade"/>
+        
+        <createTable tableName="data_source_propriedade">
+            <column name="propriedades_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_sources_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="data_sources_id, propriedades_id" tableName="data_source_propriedade"/>
+        
+        <createTable tableName="data_source_proveniencia">
+            <column name="proveniencias_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_sources_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="data_sources_id, proveniencias_id" tableName="data_source_proveniencia"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

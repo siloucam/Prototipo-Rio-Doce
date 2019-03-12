@@ -1,0 +1,78 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDataSourceLabel">Create or edit a Data Source</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.dataSource.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.dataSource.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="field_nome"
+                    ng-model="vm.dataSource.nome"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_path">Path</label>
+            <input type="text" class="form-control" name="path" id="field_path"
+                    ng-model="vm.dataSource.path"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dtinicial">Data Inicial</label>
+                <div class="input-group">
+                    <input id="field_dtinicial" type="text" class="form-control" name="dtinicial" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dataSource.dtinicial" is-open="vm.datePickerOpenStatus.dtinicial"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dtinicial')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_dtfinal">Data Final</label>
+                <div class="input-group">
+                    <input id="field_dtfinal" type="text" class="form-control" name="dtfinal" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dataSource.dtfinal" is-open="vm.datePickerOpenStatus.dtfinal"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dtfinal')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_metodo">Metodo</label>
+            <select class="form-control" id="field_metodo" multiple name="metodo" ng-model="vm.dataSource.metodos" ng-options="metodo as metodo.nome for metodo in vm.metodos track by metodo.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_entidade">Entidade</label>
+            <select class="form-control" id="field_entidade" multiple name="entidade" ng-model="vm.dataSource.entidades" ng-options="entidade as entidade.nome for entidade in vm.entidades track by entidade.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_atividade">Atividade</label>
+            <select class="form-control" id="field_atividade" multiple name="atividade" ng-model="vm.dataSource.atividades" ng-options="atividade as atividade.nome for atividade in vm.atividades track by atividade.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_propriedade">Propriedade</label>
+            <select class="form-control" id="field_propriedade" multiple name="propriedade" ng-model="vm.dataSource.propriedades" ng-options="propriedade as propriedade.nome for propriedade in vm.propriedades track by propriedade.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_proveniencia">Proveniencia</label>
+            <select class="form-control" id="field_proveniencia" multiple name="proveniencia" ng-model="vm.dataSource.proveniencias" ng-options="proveniencia as proveniencia.nome for proveniencia in vm.proveniencias track by proveniencia.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

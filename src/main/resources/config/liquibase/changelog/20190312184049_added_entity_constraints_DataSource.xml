@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DataSource.
+    -->
+    <changeSet id="20190312184049-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="data_sources_id"
+                                 baseTableName="data_source_metodo"
+                                 constraintName="fk_data_source_metodo_data_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="data_source"/>
+        <addForeignKeyConstraint baseColumnNames="metodos_id"
+                                 baseTableName="data_source_metodo"
+                                 constraintName="fk_data_source_metodo_metodos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="metodo"/>
+        
+        <addForeignKeyConstraint baseColumnNames="data_sources_id"
+                                 baseTableName="data_source_entidade"
+                                 constraintName="fk_data_source_entidade_data_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="data_source"/>
+        <addForeignKeyConstraint baseColumnNames="entidades_id"
+                                 baseTableName="data_source_entidade"
+                                 constraintName="fk_data_source_entidade_entidades_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entidade"/>
+        
+        <addForeignKeyConstraint baseColumnNames="data_sources_id"
+                                 baseTableName="data_source_atividade"
+                                 constraintName="fk_data_source_atividade_data_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="data_source"/>
+        <addForeignKeyConstraint baseColumnNames="atividades_id"
+                                 baseTableName="data_source_atividade"
+                                 constraintName="fk_data_source_atividade_atividades_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="atividade"/>
+        
+        <addForeignKeyConstraint baseColumnNames="data_sources_id"
+                                 baseTableName="data_source_propriedade"
+                                 constraintName="fk_data_source_propriedade_data_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="data_source"/>
+        <addForeignKeyConstraint baseColumnNames="propriedades_id"
+                                 baseTableName="data_source_propriedade"
+                                 constraintName="fk_data_source_propriedade_propriedades_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="propriedade"/>
+        
+        <addForeignKeyConstraint baseColumnNames="data_sources_id"
+                                 baseTableName="data_source_proveniencia"
+                                 constraintName="fk_data_source_proveniencia_data_sources_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="data_source"/>
+        <addForeignKeyConstraint baseColumnNames="proveniencias_id"
+                                 baseTableName="data_source_proveniencia"
+                                 constraintName="fk_data_source_proveniencia_proveniencias_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proveniencia"/>
+        
+    </changeSet>
+</databaseChangeLog>

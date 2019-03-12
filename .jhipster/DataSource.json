@@ -1,0 +1,69 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "datasource",
+            "relationshipName": "metodo",
+            "otherEntityName": "metodo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "datasource",
+            "relationshipName": "entidade",
+            "otherEntityName": "entidade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "datasource",
+            "relationshipName": "atividade",
+            "otherEntityName": "atividade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "datasource",
+            "relationshipName": "propriedade",
+            "otherEntityName": "propriedade",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "datasource",
+            "relationshipName": "proveniencia",
+            "otherEntityName": "proveniencia",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "path",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dtinicial",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dtfinal",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20190312184049",
+    "entityTableName": "data_source",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true
+}

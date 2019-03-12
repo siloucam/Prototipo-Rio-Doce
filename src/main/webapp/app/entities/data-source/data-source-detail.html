@@ -1,0 +1,65 @@
+
+<div>
+    <h2><span>Data Source</span> {{vm.dataSource.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{vm.dataSource.nome}}</span>
+        </dd>
+        <dt><span>Path</span></dt>
+        <dd>
+            <span>{{vm.dataSource.path}}</span>
+        </dd>
+        <dt><span>Dtinicial</span></dt>
+        <dd>
+            <span>{{vm.dataSource.dtinicial | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Dtfinal</span></dt>
+        <dd>
+            <span>{{vm.dataSource.dtfinal | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Metodo</span></dt>
+        <dd>
+            <span ng-repeat="metodo in vm.dataSource.metodos">
+                <a ui-sref="metodo-detail({id: metodo.id})">{{metodo.nome}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Entidade</span></dt>
+        <dd>
+            <span ng-repeat="entidade in vm.dataSource.entidades">
+                <a ui-sref="entidade-detail({id: entidade.id})">{{entidade.nome}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Atividade</span></dt>
+        <dd>
+            <span ng-repeat="atividade in vm.dataSource.atividades">
+                <a ui-sref="atividade-detail({id: atividade.id})">{{atividade.nome}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Propriedade</span></dt>
+        <dd>
+            <span ng-repeat="propriedade in vm.dataSource.propriedades">
+                <a ui-sref="propriedade-detail({id: propriedade.id})">{{propriedade.nome}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Proveniencia</span></dt>
+        <dd>
+            <span ng-repeat="proveniencia in vm.dataSource.proveniencias">
+                <a ui-sref="proveniencia-detail({id: proveniencia.id})">{{proveniencia.nome}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="data-source-detail.edit({id:vm.dataSource.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

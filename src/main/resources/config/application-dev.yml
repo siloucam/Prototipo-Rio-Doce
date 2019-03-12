@@ -32,9 +32,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/Prototipo_Rio_Doce?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://localhost:3306/prototipo_rio_doce?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: senha23
         hikari:
             data-source-properties:
                 cachePrepStmts: true
